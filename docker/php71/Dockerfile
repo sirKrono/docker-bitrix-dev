@@ -30,6 +30,12 @@ RUN apt-get update \
     && docker-php-source delete \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/cache/apt/*
 
+### Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+### install dependences
+RUN apt-get update --fix-missing && apt-get install -y git curl nano sudo
+
 RUN usermod -u 1000 www-data
 
 WORKDIR /var/www/html
