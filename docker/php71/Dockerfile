@@ -10,7 +10,7 @@ RUN apt-get update \
         libssl-dev \
         libmcrypt-dev \
         curl \
-        ssmtp \
+        msmtp \
     && docker-php-ext-configure gd \
         --enable-gd-native-ttf \
         --with-jpeg-dir=/usr/include \
